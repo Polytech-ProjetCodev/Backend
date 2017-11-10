@@ -1,4 +1,4 @@
-#Projet Codev : informations nutritionnelles par lecture de code barre
+# Codev Project : nutritional information by barcode scanning
 
 
 ## How to run
