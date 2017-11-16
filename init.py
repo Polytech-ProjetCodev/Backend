@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template, jsonify
 from flask_request_params import bind_request_params
 import requests
+import re
 import json
 
 # import LoginManager
@@ -31,17 +32,28 @@ def yolo():
 
 # just return request.params
 # Example : curl -X POST http://localhost:5000/recipe/compute -d 'components[009800892204]=100g&components[009800892204]=10g'
-@app.route('/recipe/compute', methods=['GET', 'POST'])
+@app.route('/recipe/compute', methods=['GET'])
 def computeRecipe():
-    components = jsonify(request.params)
-    nbComponents = len(request.params['components'])
-    for x in range(0, nbComponents):
-        print (components[x][0])
-        #getFatValue(components(x))
+
+    componentCount =  len(request.args.getlist('component'))
+    for i in range(0, componentCount):
+        component = request.args.getlist('component')[i]
+        print component
+        print getFatValue(component)
     return 'yolo'
 
 
-def getFatValue(barcode, quantity):
+def getFatValue(bulkComponent):
+    barcode = ""
+    quantity = ""
+    splitComponent = bulkComponent.split('|');
+    barcode = splitComponent[0]
+    quantity = splitComponent[1]
+    print barcode
+    print quantity
+
+    quantity = 10
+
     response = requests.get('https://fr.openfoodfacts.org/api/v0/produit/' + barcode + '.json')
     fat100g = response.json()['product']['nutriments']['fat_100g']
     return fat100g / 100 * quantity
