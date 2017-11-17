@@ -1,8 +1,7 @@
 {
 	"info": {
 		"name": "Codev",
-		"_postman_id": "98b9ea44-c00c-cde6-cd79-9eceb4f02dd4",
-		"description": "",
+		"_postman_id": "eea27213-6160-def9-9a1e-bca99010df3d",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -13,12 +12,12 @@
 				"header": [
 					{
 						"key": "component",
-						"value": "009800892204|100g",
+						"value": "009800892204|10",
 						"disabled": true
 					},
 					{
 						"key": "component",
-						"value": "009800892204|10g",
+						"value": "009800892204|1000",
 						"disabled": true
 					}
 				],
@@ -28,20 +27,18 @@
 						{
 							"key": "component",
 							"value": "009800892204|100g",
-							"description": "",
 							"type": "text"
 						},
 						{
 							"key": "component",
 							"value": "009800892204|10g",
-							"description": "",
 							"type": "text",
 							"disabled": true
 						}
 					]
 				},
 				"url": {
-					"raw": "{{protocol}}://{{server-address}}:{{port}}/recipe/compute?component=009800892204|100g&component=009800892204|10g",
+					"raw": "{{protocol}}://{{server-address}}:{{port}}/recipe/compute?component=009800892204|100&component=009800892204|1000",
 					"protocol": "{{protocol}}",
 					"host": [
 						"{{server-address}}"
@@ -54,12 +51,12 @@
 					"query": [
 						{
 							"key": "component",
-							"value": "009800892204|100g",
+							"value": "009800892204|100",
 							"equals": true
 						},
 						{
 							"key": "component",
-							"value": "009800892204|10g",
+							"value": "009800892204|1000",
 							"equals": true
 						}
 					]
