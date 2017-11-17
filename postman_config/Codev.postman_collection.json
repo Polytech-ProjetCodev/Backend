@@ -1,0 +1,72 @@
+{
+	"info": {
+		"name": "Codev",
+		"_postman_id": "98b9ea44-c00c-cde6-cd79-9eceb4f02dd4",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "{{protocol}}://{{server-address}}:{{port}}/recipe/compute",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "component",
+						"value": "009800892204|100g",
+						"disabled": true
+					},
+					{
+						"key": "component",
+						"value": "009800892204|10g",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "component",
+							"value": "009800892204|100g",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "component",
+							"value": "009800892204|10g",
+							"description": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{protocol}}://{{server-address}}:{{port}}/recipe/compute?component=009800892204|100g&component=009800892204|10g",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{server-address}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"recipe",
+						"compute"
+					],
+					"query": [
+						{
+							"key": "component",
+							"value": "009800892204|100g",
+							"equals": true
+						},
+						{
+							"key": "component",
+							"value": "009800892204|10g",
+							"equals": true
+						}
+					]
+				},
+				"description": "Compute recipe"
+			},
+			"response": []
+		}
+	]
+}
