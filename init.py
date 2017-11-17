@@ -38,8 +38,8 @@ def computeRecipe():
     componentCount =  len(request.args.getlist('component'))
     for i in range(0, componentCount):
         component = request.args.getlist('component')[i]
-        print component
-        print getFatValue(component)
+        print (component)
+        print (getFatValue(component))
     return 'yolo'
 
 
@@ -49,8 +49,8 @@ def getFatValue(bulkComponent):
     splitComponent = bulkComponent.split('|');
     barcode = splitComponent[0]
     quantity = splitComponent[1]
-    print barcode
-    print quantity
+    print (barcode)
+    print (quantity)
 
     quantity = 10
 
