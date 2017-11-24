@@ -10,7 +10,8 @@ App is launched on http://localhost:5000/
 
 ## Relevant docs
 https://pythonhosted.org/Flask-Security/  
-https://flask-login.readthedocs.io/en/latest/
+https://flask-login.readthedocs.io/en/latest/  
+http://flask-sqlalchemy.pocoo.org/2.3/
 
 ## Notes du 24 Novembre 2017
 * Récupérer Kcal, matières grasses, glucides, sucres, protéines, sel
