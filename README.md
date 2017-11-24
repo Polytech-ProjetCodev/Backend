@@ -5,7 +5,7 @@
 ## How to run
 `pip install Flask`  
 `pip install flask-login`  
-`export FLASK_APP=init.py | flask run`  
+`export FLASK_APP=init.py | flask run`  or `python3 -m flask run` for Python 3
 App is launched on http://localhost:5000/
 
 ## Relevant docs
