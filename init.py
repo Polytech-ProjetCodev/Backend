@@ -1,4 +1,5 @@
 from flask import Flask, request, render_template, jsonify
+from flask_sqlalchemy import SQLAlchemy
 # from flask_request_params import bind_request_params
 import requests
 import re
@@ -8,6 +9,12 @@ import json
 
 
 app = Flask(__name__)
+
+# Configure database
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqldb://codev_back_user:W?9422$8+},3>3378@localhost[:3306]/codev_back'
+db = SQLAlchemy(app)
+
 # app.before_request(bind_request_params)
 
 
