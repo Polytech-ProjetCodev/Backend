@@ -25,33 +25,46 @@ def coucou(username):
 
 @app.route("/test")
 def test():
-    return get_component_name('009800892204') + str(get_component_fat('009800892204'))
+    return get_ingredient_name('009800892204') + str(get_ingredient_fat('009800892204'))
 
 
 @app.route('/recipe/compute', methods=['GET'])
 def computeRecipe():
-    """this route takes in parameter a bunch of components, with their quantity, and return the amount of fat it contains."""
+    """this route takes in parameter a bunch of ingredients, with their quantity, and return the amount of fat it contains."""
     total_fat = 0
-    for component in request.args.getlist('component'):
-        component = component.split('|')
-        component_id, quantity = component[0], component[1]
-        total_fat += get_component_fat(component_id, float(quantity))
+    for ingredient in request.args.getlist('ingredient'):
+        ingredient = ingredient.split('|')
+        ingredient_id, quantity = ingredient[0], ingredient[1]
+        total_fat += get_ingredient_fat(ingredient_id, float(quantity))
     return str(total_fat)
 
 
-def get_component(component_id):
+def get_ingredient_by_id(ingredient_id):
     """returns a dictionnary containing all information provided by the openfoodfacts.org API from the ID passed in parameter"""
-    return requests.get('https://fr.openfoodfacts.org/api/v0/produit/' + str(component_id) + '.json').json()
+    return requests.get('https://fr.openfoodfacts.org/api/v0/produit/' + str(ingredient_id) + '.json').json()
 
 
-def get_component_name(component_id):
+def get_ingredient_name(ingredient_id):
     """returns the name of the product of which the ID was passed in parameter"""
-    component = get_component(component_id)
-    return component['product']['product_name_en']
+    ingredient = get_ingredient_by_id(ingredient_id)
+    return ingredient['product']['product_name_en']
 
 
-def get_component_fat(component_id, quantity=100):
+def get_ingredient_fat(ingredient_id, quantity=100):
     """returns the amount of fat by 100g of the product of which the ID was passed in parameter"""
-    component = get_component(component_id)
-    fat100g = component['product']['nutriments']['fat_100g']
+    ingredient = get_ingredient_by_id(ingredient_id)
+    fat100g = ingredient['product']['nutriments']['fat_100g']
     return fat100g / 100 * quantity
+
+def get_ingredient_salt(ingredient_id, quantity=100):
+    """returns the amount of salt by 100g of the product of which the ID was passed in parameter"""
+    ingredient = get_ingredient_by_id(ingredient_id)
+    salt100g = ingredient['product']['nutriments']['salt_100g']
+    return salt100g / 100 * quantity
+
+
+def get_ingredient_energy(ingredient_id, quantity=100):
+    """returns the amount of energy by 100g of the product of which the ID was passed in parameter"""
+    ingredient = get_ingredient_by_id(ingredient_id)
+    energy100g = ingredient['product']['nutriments']['energy100g']
+    return energy100g / 100 * quantity

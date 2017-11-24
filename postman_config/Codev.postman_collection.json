@@ -11,12 +11,12 @@
 				"method": "GET",
 				"header": [
 					{
-						"key": "component",
+						"key": "ingredient",
 						"value": "009800892204|10",
 						"disabled": true
 					},
 					{
-						"key": "component",
+						"key": "ingredient",
 						"value": "009800892204|1000",
 						"disabled": true
 					}
@@ -25,12 +25,12 @@
 					"mode": "formdata",
 					"formdata": [
 						{
-							"key": "component",
+							"key": "ingredient",
 							"value": "009800892204|100g",
 							"type": "text"
 						},
 						{
-							"key": "component",
+							"key": "ingredient",
 							"value": "009800892204|10g",
 							"type": "text",
 							"disabled": true
@@ -38,7 +38,7 @@
 					]
 				},
 				"url": {
-					"raw": "{{protocol}}://{{server-address}}:{{port}}/recipe/compute?component=009800892204|100&component=009800892204|1000",
+					"raw": "{{protocol}}://{{server-address}}:{{port}}/recipe/compute?ingredient=009800892204|100&ingredient=009800892204|1000",
 					"protocol": "{{protocol}}",
 					"host": [
 						"{{server-address}}"
@@ -50,12 +50,12 @@
 					],
 					"query": [
 						{
-							"key": "component",
+							"key": "ingredient",
 							"value": "009800892204|100",
 							"equals": true
 						},
 						{
-							"key": "component",
+							"key": "ingredient",
 							"value": "009800892204|1000",
 							"equals": true
 						}
