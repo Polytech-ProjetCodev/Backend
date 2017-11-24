@@ -19,3 +19,4 @@ https://flask-login.readthedocs.io/en/latest/
 * OAuth 2 avec Facebook et Google
 * Appli multilangue (Anglais, Français, ET ESPAGNOL)
 * Faire du release by feature
+* Parseur de convert-me.com ?
