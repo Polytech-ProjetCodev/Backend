@@ -3,8 +3,10 @@
 
 
 ## How to run
-`pip install Flask`  
-`pip install flask-login`  
+`pip3 install Flask`  
+`pip3 install flask-login`  
+`pip3 install flask-sqlalchemy` 
+`pip3 install pymysql`  
 `export FLASK_APP=init.py | flask run`  or `python3 -m flask run` for Python 3  
 App is launched on http://localhost:5000/
 
