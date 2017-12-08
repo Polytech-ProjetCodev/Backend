@@ -3,21 +3,18 @@
 
 
 ## How to run
-`pip3 install Flask`  
-`pip3 install flask-login`  
-`pip3 install flask-sqlalchemy`  
-`pip3 install pymysql`  
-`export FLASK_APP=init.py | flask run`  or `python3 -m flask run` for Python 3  
-App is launched on http://localhost:5000/
+`pip install pipenv`  
+`pipenv update`  
+`pipenv run python manage.py runserver 8080`
+App is launched on http://localhost:8000/
 
 ## Relevant docs
-https://pythonhosted.org/Flask-Security/  
-https://flask-login.readthedocs.io/en/latest/  
-http://flask-sqlalchemy.pocoo.org/2.3/  
-http://blog.luisrei.com/articles/flaskrest.html  
+https://docs.djangoproject.com/en/2.0/ref/settings/  
+https://docs.djangoproject.com/en/2.0/ref/databases/  
 
 ## Notes du 8 Décembre 2017
 * Vérifier la présence d'allergènes et notifier l'utilisateur
+* Configurer PostgresSQL sur Docker  
 
 ## Notes du 24 Novembre 2017
 * Récupérer Kcal, matières grasses, glucides, sucres, protéines, sel
