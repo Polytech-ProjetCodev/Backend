@@ -4,7 +4,7 @@
 
 ## Présentation du sujet
 L’objectif de ce projet est de concevoir par groupe de 2 ou 3 étudiants la partie serveur/Backend d’un service et la partie cliente/Frontend qui appellera ce service.  
-Le Backend se basera au choix sur une technologie au choix (ici Python avec Django). La partie Frontend sera une application Ionic.
+Le Backend se basera au choix sur une technologie au choix (ici **Python avec Django**). La partie Frontend sera une application **Ionic**.
 
 ## Application recipe calculator
 ### Contexte
@@ -34,7 +34,7 @@ L’utilisateur peut partager une recette créée à une personne.
 
 ## Cahier des charges
 ### Obligatoire
-* Application mobile Android native ou hybride (Ionic, React Native).
+* Application mobile Android native ou hybride (**Ionic**).
 * Calcul des informations nutritionnelles des recettes avec au moins comme données : calories,
 protéines, glucides (dont les sucres), lipides (acides gras saturés), sel, fibres.
 * Utilisation de la caméra pour scanner des codes-barres et ajouter des ingrédients (API Open Food
@@ -46,7 +46,7 @@ Facts) ou ajout à la main (qui seront stockés en BDD/en ligne).
 * Stockage en ligne des recettes créées par l’utilisateur
 
 ### Bonus
-* Application multilingue (Français, Anglais, Espagnol)
+* Application multilingue (Français, Anglais, **Espagnol**)
 * Logo & nom pour l'application réfléchis et stylés
 * Utilisation des notifications Push (Firebase ou GCM)
 * Pré-reconnaissance d’une recette en la copiant/collant d’un site (ex : Marmiton).
