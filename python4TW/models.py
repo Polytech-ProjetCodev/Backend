@@ -17,7 +17,7 @@ class Ingredient(models.Model):
     protein_100g = models.FloatField()
     salt_100g = models.FloatField()
 
-
+    # Ingredient
     def __init__(self, barcode):
         self.barcode = barcode
         informations = self.get_information()
