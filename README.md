@@ -16,6 +16,9 @@ https://flask-login.readthedocs.io/en/latest/
 http://flask-sqlalchemy.pocoo.org/2.3/  
 http://blog.luisrei.com/articles/flaskrest.html  
 
+## Notes du 8 Décembre 2017
+* Vérifier la présence d'allergènes et notifier l'utilisateur
+
 ## Notes du 24 Novembre 2017
 * Récupérer Kcal, matières grasses, glucides, sucres, protéines, sel
 * Tests sur les codes de retour et tests fonctionnels
