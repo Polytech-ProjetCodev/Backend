@@ -24,3 +24,18 @@ https://docs.djangoproject.com/en/2.0/ref/databases/
 * Appli multilangue (Anglais, Français, ET ESPAGNOL)
 * Faire du release by feature
 * Parseur de convert-me.com ?
+
+## Notes
+### Allergènes Openfoodfacts
+* hazelnuts
+* soja
+*	"en:mustard"
+* "en:sulphur-dioxide-and-sulphites"
+*	"en:nuts"
+*	"en:celery"
+*	"en:eggs"
+*	"en:milk"
+*	"en:mustard"
+*	"en:milk"
+*	"en:soybeans"
+*	"fr:lactosérum"
