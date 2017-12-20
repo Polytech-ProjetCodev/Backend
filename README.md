@@ -27,15 +27,11 @@ https://docs.djangoproject.com/en/2.0/ref/databases/
 
 ## Notes
 ### Allergènes Openfoodfacts
-* hazelnuts
-* soja
-*	"en:mustard"
+*	"en:mustard" => Mutarde
 * "en:sulphur-dioxide-and-sulphites"
-*	"en:nuts"
-*	"en:celery"
-*	"en:eggs"
-*	"en:milk"
-*	"en:mustard"
-*	"en:milk"
-*	"en:soybeans"
+*	"en:nuts" => Noix
+*	"en:celery" => Celeri
+*	"en:eggs" => Oeufs
+*	"en:milk" => Lait
+*	"en:soybeans" => Germe de soja
 *	"fr:lactosérum"
