@@ -55,3 +55,7 @@ SQLite avec Room par exemple
 
 ### Idée perso
 * L'utilisateur configure ses allergènes et est notifié lorsqu'une recette en contient au moins un.
+
+
+### Autres
+Code couleur pour les types de recettes
