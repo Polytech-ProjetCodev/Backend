@@ -58,4 +58,6 @@ SQLite avec Room par exemple
 
 
 ### Autres
-Code couleur pour les types de recettes
+* Code couleur pour les types de recettes
+* WADL
+* Swagger
