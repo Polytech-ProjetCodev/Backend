@@ -11,8 +11,9 @@ name = "pypi"
 
 [packages]
 
-django = "*"
 requests = "*"
+django = "==2.0.0"
+"psycopg2" = "*"
 
 
 [requires]
