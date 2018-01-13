@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'python4TW'
+    'python4TW.apps.Python4TwConfig',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
