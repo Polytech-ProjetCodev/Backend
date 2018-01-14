@@ -1,5 +1,5 @@
 from django.db import models
-import requests
+# import requests
 # from django.contrib.auht.models import User
 # Create your models here.
 
