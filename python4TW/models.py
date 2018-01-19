@@ -17,6 +17,18 @@ class Ingredient(models.Model):
     protein_100g = models.FloatField()
     salt_100g = models.FloatField()
 
+class Recipe(models.Model):
+    name = models.CharField(max_length=255)
+    # component = models.ForeignKey(Component, on_delete=models.CASCADE)
+    favorite = models.BooleanField()
+    owner = models.ForeignKey('auth.User',related_name="recipes", on_delete=models.CASCADE)
+
+
+class Component(models.Model):
+    ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+    quantity = models.FloatField()
+#     ##TODO composite key
 
     # def __init__(self, barcode):
     #     self.barcode = barcode
@@ -52,14 +64,3 @@ class Ingredient(models.Model):
     # def get_full_information(self):
     #     """returns a dictionnary containing all information provided by the openfoodfacts.org API from the ID passed in parameter"""
     #     return requests.get('https://fr.openfoodfacts.org/api/v0/produit/' + str(self.barcode) + '.json').json()
-
-
-class Component(models.Model):
-    ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
-    # recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
-    quantity = models.FloatField()
-#     ##TODO composite key
-#
-# class Recipe(models.Model):
-#     name = models.CharField(max_length=255)
-#     favorite = models.BooleanField()
