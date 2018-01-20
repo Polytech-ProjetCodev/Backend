@@ -5,9 +5,9 @@ from django.db import models
 
 # class Allergen(models.Model):
 #     name = models.CharField(max_length=45)
-
 class Ingredient(models.Model):
     barcode = models.CharField(max_length=13, primary_key=True)
+    # components = models.ForeignKey(Component, related_name='component', on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     energy_100g = models.FloatField()
     fat_100g = models.FloatField()
@@ -17,18 +17,19 @@ class Ingredient(models.Model):
     protein_100g = models.FloatField()
     salt_100g = models.FloatField()
 
+
+
 class Recipe(models.Model):
     name = models.CharField(max_length=255)
-    # component = models.ForeignKey(Component, on_delete=models.CASCADE)
     favorite = models.BooleanField()
     owner = models.ForeignKey('auth.User',related_name="recipes", on_delete=models.CASCADE)
 
-
 class Component(models.Model):
     ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
-    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+    recipe = models.ForeignKey(Recipe,related_name='components', on_delete=models.CASCADE)
     quantity = models.FloatField()
 #     ##TODO composite key
+
 
     # def __init__(self, barcode):
     #     self.barcode = barcode

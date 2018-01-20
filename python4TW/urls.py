@@ -9,14 +9,14 @@ urlpatterns = [
     path('', views.welcome),
     path('api-auth/', include('rest_framework.urls')),
     #
-    # path('ingredient/', views.IngredientList.as_view()),
-    # path('ingredient/<int:pk>/', views.IngredientDetail.as_view()),
+    path('ingredient/', views.IngredientList.as_view()),
+    path('ingredient/<int:pk>/', views.IngredientDetail.as_view()),
     #
     path('recipe/', views.RecipeList.as_view()),
     path('recipe/<int:pk>/', views.RecipeDetail.as_view()),
     #
-    # path('component/', views.ComponentList.as_view()),
-    # path('component/<int:pk>/', views.ComponentDetail.as_view()),
+    path('component/', views.ComponentList.as_view()),
+    path('component/<int:pk>/', views.ComponentDetail.as_view()),
     #
     path('users/', views.UserList.as_view()),
     path('users/<int:pk>/', views.UserDetail.as_view()),

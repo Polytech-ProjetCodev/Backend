@@ -25,7 +25,7 @@
 
 from python4TW.models import Ingredient, Component, Recipe
 # from python4TW.serializers import IngredientSerializer, UserSerializer, RecipeSerializer, ComponentSerializer
-from python4TW.serializers import UserSerializer, RecipeSerializer
+from python4TW.serializers import UserSerializer, RecipeSerializer, ComponentSerializer, IngredientSerializer
 from rest_framework import generics
 from django.http import HttpResponse
 from rest_framework.response import Response
@@ -39,24 +39,24 @@ def welcome(request):
     return HttpResponse("welcome to the API")
 
 
+
+class IngredientList(generics.ListCreateAPIView):
+    queryset = Ingredient.objects.all()
+    serializer_class = IngredientSerializer
+
+class IngredientDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Ingredient.objects.all()
+    serializer_class = IngredientSerializer
+
 #
-# class IngredientList(generics.ListCreateAPIView):
-#     queryset = Ingredient.objects.all()
-#     serializer_class = IngredientSerializer
 #
-# class IngredientDetail(generics.RetrieveUpdateDestroyAPIView):
-#     queryset = Ingredient.objects.all()
-#     serializer_class = IngredientSerializer
-#
-#
-#
-# class ComponentList(generics.ListCreateAPIView):
-#     queryset = Component.objects.all()
-#     serializer_class = ComponentSerializer
-#
-# class ComponentDetail(generics.RetrieveUpdateDestroyAPIView):
-#     queryset = Component.objects.all()
-#     serializer_class = ComponentSerializer
+class ComponentList(generics.ListCreateAPIView):
+    queryset = Component.objects.all()
+    serializer_class = ComponentSerializer
+
+class ComponentDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Component.objects.all()
+    serializer_class = ComponentSerializer
 
 class RecipeList(generics.ListCreateAPIView):
     queryset = Recipe.objects.all()
