@@ -27,3 +27,11 @@ http://blog.luisrei.com/articles/flaskrest.html
 * Appli multilangue (Anglais, Français, ET ESPAGNOL)
 * Faire du release by feature
 * Parseur de convert-me.com ?
+
+
+## Notes du 2/02/2018
+* Dockerisation du serveur
+* implémentation du serveur GUnicorn à la place du serveur built in django
+* regarder Enunciate pour documenter l'API
+* regarder OAuth2 en django
+* Ecrire test unitaires
