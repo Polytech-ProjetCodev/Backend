@@ -12,9 +12,10 @@ name = "pypi"
 [packages]
 
 requests = "*"
-django = "==2.0.0"
 "psycopg2" = "*"
 djangorestframework = "*"
+django = "*"
+django-cors-headers = "*"
 
 
 [requires]
