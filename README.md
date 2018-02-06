@@ -35,3 +35,7 @@ https://docs.djangoproject.com/en/2.0/ref/databases/
 *	"en:milk" => Lait
 *	"en:soybeans" => Germe de soja
 *	"fr:lactosérum"
+
+
+# TODO
+* Add front_quantity field on component class (1cs, 1cc, ...)
