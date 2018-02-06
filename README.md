@@ -38,4 +38,5 @@ https://docs.djangoproject.com/en/2.0/ref/databases/
 
 
 # TODO
+* Add Access-Control-Allow-Origin header on response (See https://github.com/crs4/ome_seadragon/wiki/Enable-Django-CORS-(Cross-Origin-Resource-Sharing)-Headers-configuration)
 * Add front_quantity field on component class (1cs, 1cc, ...)
