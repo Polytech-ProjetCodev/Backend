@@ -7,6 +7,7 @@ import requests
 class Ingredient(models.Model):
     barcode = models.CharField(max_length=13, primary_key=True)
     name = models.CharField(max_length=255)
+    image = models.CharField(max_length=255)
     energy_100g = models.FloatField()
     fat_100g = models.FloatField()
     saturated_fat_100g = models.FloatField()
@@ -25,6 +26,7 @@ class Ingredient(models.Model):
         full_information = self.get_full_information(barcode)
         self.barcode = barcode
         self.name = full_information['product']['product_name']
+        self.image = full_information['product']['image_front_url']
         self.energy_100g = full_information['product']['nutriments']['energy_100g']
         self.fat_100g = full_information['product']['nutriments']['fat_100g']
         self.saturated_fat_100g = full_information['product']['nutriments']['saturated-fat_100g']
