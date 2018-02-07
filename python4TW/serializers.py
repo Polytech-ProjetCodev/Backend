@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 class IngredientSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ingredient
-        fields = ('barcode', 'name','energy_100g','fat_100g','saturated_fat_100g', 'carbohydrates_100g','sugar_100g','protein_100g','salt_100g')
+        fields = ('barcode', 'name','image','energy_100g','fat_100g','saturated_fat_100g', 'carbohydrates_100g','sugar_100g','protein_100g','salt_100g')
 # #
 class ComponentSerializer(serializers.ModelSerializer):
     recipe = serializers.PrimaryKeyRelatedField(many=False, queryset=Recipe.objects.all())

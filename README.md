@@ -3,6 +3,7 @@
 
 
 ## How to run
+<<<<<<< HEAD
 `pip3 install Flask`  
 `pip3 install flask-login`  
 `pip3 install flask-sqlalchemy`  
@@ -18,6 +19,20 @@ http://blog.luisrei.com/articles/flaskrest.html
 
 ## Notes du 8 Décembre 2017
 * Vérifier la présence d'allergènes et notifier l'utilisateur
+=======
+`pip install pipenv`  
+`pipenv update`  
+`pipenv run python manage.py runserver 8080`
+App is launched on http://localhost:8000/
+
+## Relevant docs
+https://docs.djangoproject.com/en/2.0/ref/settings/  
+https://docs.djangoproject.com/en/2.0/ref/databases/  
+
+## Notes du 8 Décembre 2017
+* Vérifier la présence d'allergènes et notifier l'utilisateur
+* Configurer PostgresSQL sur Docker  
+>>>>>>> 7471fa28bbaf30fd3b1dc0964ea7b1b0860410bb
 
 ## Notes du 24 Novembre 2017
 * Récupérer Kcal, matières grasses, glucides, sucres, protéines, sel
@@ -28,6 +43,7 @@ http://blog.luisrei.com/articles/flaskrest.html
 * Faire du release by feature
 * Parseur de convert-me.com ?
 
+<<<<<<< HEAD
 
 ## Notes du 2/02/2018
 * Dockerisation du serveur
@@ -35,3 +51,15 @@ http://blog.luisrei.com/articles/flaskrest.html
 * regarder Enunciate pour documenter l'API
 * regarder OAuth2 en django
 * Ecrire test unitaires
+=======
+## Notes
+### Allergènes Openfoodfacts
+*	"en:mustard" => Mutarde
+* "en:sulphur-dioxide-and-sulphites"
+*	"en:nuts" => Noix
+*	"en:celery" => Celeri
+*	"en:eggs" => Oeufs
+*	"en:milk" => Lait
+*	"en:soybeans" => Germe de soja
+*	"fr:lactosérum"
+>>>>>>> 7471fa28bbaf30fd3b1dc0964ea7b1b0860410bb
