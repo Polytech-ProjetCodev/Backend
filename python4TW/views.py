@@ -10,6 +10,7 @@ from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework import status
 # from python4TW.permissions import IsOwnerOrReadOnly
+import time
 
 
 def welcome(request):
@@ -29,11 +30,14 @@ class IngredientDetail(APIView):
         try:
             return Ingredient.objects.get(pk=pk)
         except Ingredient.DoesNotExist:
+            print("l'ingrédient n'existe pas")
             # on va le chercher dans openfoodfacts
             ingredient = Ingredient()
 
             try:
                 ingredient.get_information(barcode=pk)
+                print(ingredient.name)
+
                 return ingredient
             except KeyError:
                 raise Http404

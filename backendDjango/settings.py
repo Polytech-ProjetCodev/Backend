@@ -23,9 +23,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = ')39ut+&a^$_#^8&*7_+ydo5=r*!peqqsbj_li6qxbecuq7i63d'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if os.getenv('DJANGO_ENV') == 'prod':
+    DEBUG = False
+    ALLOWED_HOSTS = ["0.0.0.0", "python4TW.gregoirepiat.fr"]
 
-ALLOWED_HOSTS = []
+else:
+    DEBUG = True
+    ALLOWED_HOSTS = ["0.0.0.0"]
 
 
 # Application definition
@@ -84,7 +88,6 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
 
 
 # Password validation
