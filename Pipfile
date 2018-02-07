@@ -12,7 +12,7 @@ name = "pypi"
 [packages]
 
 requests = "*"
-psycopg" = "*"
+"psycopg2" = "*"
 djangorestframework = "*"
 gunicorn = "*"
 django = "*"
