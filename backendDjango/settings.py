@@ -28,7 +28,7 @@ if os.getenv('DJANGO_ENV') == 'prod':
 
 else:
     DEBUG = True
-    ALLOWED_HOSTS = ["0.0.0.0", "127.0.0.1"]
+    ALLOWED_HOSTS = ["0.0.0.0", "127.0.0.1", "192.168.1.68"]
 
 # Application definition
 
