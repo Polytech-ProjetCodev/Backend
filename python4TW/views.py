@@ -72,7 +72,7 @@ class ComponentList(generics.ListCreateAPIView):
         recipe = serializer.data.get('recipe')
         quantity = serializer.data.get('quantity')
         print(recipe)
-        recipe['energy']+=
+        # recipe['energy']+=
     
 
 
