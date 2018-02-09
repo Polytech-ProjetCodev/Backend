@@ -19,7 +19,8 @@ class Ingredient(models.Model):
     def get_full_information(self, barcode):
         """returns a dictionnary containing all information provided by the openfoodfacts.org API from the ID passed in parameter"""
         # print("on va chercher l'ingrédient sur openfoodfacts.org")
-        openfoodfactsinfo = requests.get('https://fr.openfoodfacts.org/api/v0/produit/' + str(barcode) + '.json').json()
+        openfoodfactsinfo = requests.get(
+            'https://fr.openfoodfacts.org/api/v0/produit/' + str(barcode) + '.json').json()
         # print(str(openfoodfactsinfo)[:100])
         return openfoodfactsinfo
 
@@ -27,40 +28,44 @@ class Ingredient(models.Model):
         full_information = self.get_full_information(barcode)
         self.barcode = barcode
         self.name = full_information['product']['product_name']
+        try:
+            self.image = full_information['product']['selected_images']['front']['display']['fr']
+        except KeyError:
+            self.image = ""
 
         try:
             self.energy_100g = full_information['product']['nutriments']['energy_100g']
-        except KeyError :
+        except KeyError:
             self.energy_100g = -1
 
         try:
             self.fat_100g = full_information['product']['nutriments']['fat_100g']
-        except KeyError :
+        except KeyError:
             self.fat_100g = -1
 
         try:
             self.saturated_fat_100g = full_information['product']['nutriments']['saturated-fat_100g']
-        except KeyError :
+        except KeyError:
             self.saturated_fat_100g = -1
 
         try:
             self.carbohydrates_100g = full_information['product']['nutriments']['carbohydrates_100g']
-        except KeyError :
+        except KeyError:
             self.carbohydrates_100g = -1
 
         try:
             self.sugar_100g = full_information['product']['nutriments']['sugars_100g']
-        except KeyError :
+        except KeyError:
             self.sugar_100g = -1
 
         try:
             self.protein_100g = full_information['product']['nutriments']['proteins_100g']
-        except KeyError :
+        except KeyError:
             self.protein_100g = -1
 
         try:
             self.salt_100g = full_information['product']['nutriments']['salt_100g']
-        except KeyError :
+        except KeyError:
             self.salt_100g = -1
 
 
@@ -69,14 +74,36 @@ class Recipe(models.Model):
     favorite = models.BooleanField()
     owner = models.ForeignKey(
         'auth.User', related_name="recipes", on_delete=models.CASCADE)
+    energy = models.FloatField()
+    fat = models.FloatField()
+    saturated = models.FloatField()
+    carbohydrates = models.FloatField()
+    sugar = models.FloatField()
+    protein = models.FloatField()
+    salt = models.FloatField()
 
     # a tester
-    def get_nutritional_values(self):
-        queryset = Components.objects.filter(recipe=self.id)
-        
+    # def get_nutritional_values(self):
+    #     queryset = Component.objects.filter(recipe=self.id)
+    #     for component in queryset:
+    #         self.fat += component.fat_100g*component.quantity/100
+
 
 class Component(models.Model):
     ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
     recipe = models.ForeignKey(
         Recipe, related_name='components', on_delete=models.CASCADE)
     quantity = models.FloatField()
+
+    # def on_put(self):
+    #     print("in on_add()")
+    #     recipe.energy += self.ingredient.energy_100g*self.quantity/100
+
+
+    # def on_post(self):
+    #     print("in on_post()")
+    #     self.recipe.energy += self.ingredient.energy_100g*self.quantity/100
+
+    # def on_delete(self):
+    #     print("in on_delete()")
+    #     self.recipe.energy -= self.ingredient.energy_100g*self.quantity/100

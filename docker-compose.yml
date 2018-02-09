@@ -12,22 +12,22 @@ services:
       - postgres
     restart: unless-stopped
 
-  pgadmin:
-    links:
-      - postgres:postgres
-    image: fenglc/pgadmin4
-    ports:
-      - "5050:5050"
-    networks:
-      - postgres
-    restart: unless-stopped
-
-  # web:
-  #   image: python4tw/web
+  # pgadmin:
+  #   links:
+  #     - postgres:postgres
+  #   image: fenglc/pgadmin4
   #   ports:
-  #     - "8000:8000"
-  #   depends_on:
-      # - postgres
+  #     - "5050:5050"
+  #   networks:
+  #     - postgres
+  #   restart: unless-stopped
+
+  web:
+    image: python4tw/web
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
 
 networks:
   postgres:

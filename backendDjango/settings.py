@@ -104,6 +104,10 @@ WSGI_APPLICATION = 'backendDjango.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
+if os.getenv('DOCKER_CONTAINER'):
+    POSTGRES_HOST = 'postgres'
+else:
+    POSTGRES_HOST = '127.0.0.1'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
