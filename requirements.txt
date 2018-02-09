@@ -1,0 +1,7 @@
+requests
+psycopg2
+djangorestframework
+gunicorn
+djangorestframework
+django
+django-cors-headers
