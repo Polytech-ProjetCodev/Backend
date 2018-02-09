@@ -27,7 +27,11 @@ class Ingredient(models.Model):
         full_information = self.get_full_information(barcode)
         self.barcode = barcode
         self.name = full_information['product']['product_name']
-        self.image = full_information['product']['image_front_url']
+
+        try:
+            self.image = full_information['product']['image_front_url']
+        except KeyError:
+            self.image = "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
 
         try:
             self.energy_100g = full_information['product']['nutriments']['energy_100g']
