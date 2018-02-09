@@ -34,6 +34,11 @@ class Ingredient(models.Model):
             self.image = ""
 
         try:
+            self.image = full_information['product']['image_front_url']
+        except KeyError:
+            self.image = "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
+
+        try:
             self.energy_100g = full_information['product']['nutriments']['energy_100g']
         except KeyError:
             self.energy_100g = -1
