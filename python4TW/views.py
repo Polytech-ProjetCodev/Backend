@@ -5,7 +5,9 @@ from django.http import HttpResponse
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from django.contrib.auth.models import User
-from rest_framework import permissions
+# from rest_framework import permissions
+from rest_framework import mixins
+
 from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework import status
@@ -36,8 +38,6 @@ class IngredientDetail(APIView):
 
             try:
                 ingredient.get_information(barcode=pk)
-                print(ingredient.name)
-
                 return ingredient
             except KeyError:
                 raise Http404
@@ -68,11 +68,23 @@ class ComponentList(generics.ListCreateAPIView):
     queryset = Component.objects.all()
     serializer_class = ComponentSerializer
 
+    def perform_create(self, serializer):
+        recipe = serializer.data.get('recipe')
+        quantity = serializer.data.get('quantity')
+        print(recipe)
+        recipe['energy']+=
+    
+
 
 class ComponentDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Component.objects.all()
     serializer_class = ComponentSerializer
 
+    # def perform_destroy(self, serializer):
+    #     pass
+
+    # def perform_destroy(self, instance):
+    #     pass
 
 class RecipeList(generics.ListCreateAPIView):
     queryset = Recipe.objects.all()

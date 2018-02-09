@@ -1,11 +1,7 @@
 {
     "_meta": {
         "hash": {
-<<<<<<< HEAD
-            "sha256": "2d2b629dd9f3a4315bb1a894be3f44950491a9404fbc20f59538a17381ca7973"
-=======
-            "sha256": "0ba04bec21205ef5c7d2f84d294f9dea891dbd51e67701ccf243699d5d1c7370"
->>>>>>> d164b1cc0b5c59e0ec8fcd789ce2359c2bbbff9f
+            "sha256": "90b6e619dd31273c5dd3c4c9b82b0cb029ebc2a17896e0b7a1fe4abcba2d91cf"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
@@ -13,18 +9,12 @@
             "os_name": "posix",
             "platform_machine": "x86_64",
             "platform_python_implementation": "CPython",
-<<<<<<< HEAD
-            "platform_release": "4.14.15-1-ARCH",
+            "platform_release": "4.15.1-2-ARCH",
             "platform_system": "Linux",
-            "platform_version": "#1 SMP PREEMPT Tue Jan 23 21:49:25 UTC 2018",
-=======
-            "platform_release": "17.4.0",
-            "platform_system": "Darwin",
-            "platform_version": "Darwin Kernel Version 17.4.0: Sun Dec 17 09:19:54 PST 2017; root:xnu-4570.41.2~1/RELEASE_X86_64",
->>>>>>> d164b1cc0b5c59e0ec8fcd789ce2359c2bbbff9f
+            "platform_version": "#1 SMP Sun Feb 4 22:27:45 UTC 2018",
             "python_full_version": "3.6.4",
             "python_version": "3.6",
-            "sys_platform": "darwin"
+            "sys_platform": "linux"
         },
         "pipfile-spec": 6,
         "requires": {
