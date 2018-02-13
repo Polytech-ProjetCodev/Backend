@@ -11,6 +11,14 @@ name = "pypi"
 
 [packages]
 
-flask = "*"
 requests = "*"
-flask-request-params = "*"
+"psycopg2" = "*"
+djangorestframework = "*"
+gunicorn = "*"
+django = "*"
+django-cors-headers = "*"
+
+
+[requires]
+
+python_version = "3.6"

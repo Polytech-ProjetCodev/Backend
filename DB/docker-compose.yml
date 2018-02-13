@@ -1,0 +1,34 @@
+version: '2.2'
+
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: changeme
+    ports:
+      - "5433:5432"
+    networks:
+      - postgres
+    restart: unless-stopped
+
+  pgadmin:
+    links:
+      - postgres:postgres
+    image: fenglc/pgadmin4
+    ports:
+      - "5050:5050"
+    networks:
+      - postgres
+    restart: unless-stopped
+
+  # web:
+  #   image: python4tw/web
+  #   ports:
+  #     - "8000:8000"
+  #   depends_on:
+      # - postgres
+
+networks:
+  postgres:
+    driver: bridge
