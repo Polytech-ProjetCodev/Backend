@@ -3,23 +3,6 @@
 
 
 ## How to run
-<<<<<<< HEAD
-`pip3 install Flask`  
-`pip3 install flask-login`  
-`pip3 install flask-sqlalchemy`  
-`pip3 install pymysql`  
-`export FLASK_APP=init.py | flask run`  or `python3 -m flask run` for Python 3  
-App is launched on http://localhost:5000/
-
-## Relevant docs
-https://pythonhosted.org/Flask-Security/  
-https://flask-login.readthedocs.io/en/latest/  
-http://flask-sqlalchemy.pocoo.org/2.3/  
-http://blog.luisrei.com/articles/flaskrest.html  
-
-## Notes du 8 Décembre 2017
-* Vérifier la présence d'allergènes et notifier l'utilisateur
-=======
 `pip install pipenv`  
 `pipenv update`  
 `pipenv run python manage.py runserver 8080`
@@ -32,7 +15,6 @@ https://docs.djangoproject.com/en/2.0/ref/databases/
 ## Notes du 8 Décembre 2017
 * Vérifier la présence d'allergènes et notifier l'utilisateur
 * Configurer PostgresSQL sur Docker  
->>>>>>> 7471fa28bbaf30fd3b1dc0964ea7b1b0860410bb
 
 ## Notes du 24 Novembre 2017
 * Récupérer Kcal, matières grasses, glucides, sucres, protéines, sel
@@ -62,4 +44,12 @@ https://docs.djangoproject.com/en/2.0/ref/databases/
 *	"en:milk" => Lait
 *	"en:soybeans" => Germe de soja
 *	"fr:lactosérum"
+<<<<<<< HEAD
 >>>>>>> 7471fa28bbaf30fd3b1dc0964ea7b1b0860410bb
+=======
+
+
+# TODO
+* Add Access-Control-Allow-Origin header on response (See https://github.com/crs4/ome_seadragon/wiki/Enable-Django-CORS-(Cross-Origin-Resource-Sharing)-Headers-configuration)
+* Add front_quantity field on component class (1cs, 1cc, ...)
+>>>>>>> ab77b180f163f8b596bd1699b8e063923c2c027e
