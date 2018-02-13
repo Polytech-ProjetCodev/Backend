@@ -25,7 +25,6 @@ https://docs.djangoproject.com/en/2.0/ref/databases/
 * Faire du release by feature
 * Parseur de convert-me.com ?
 
-<<<<<<< HEAD
 
 ## Notes du 2/02/2018
 * Dockerisation du serveur
@@ -33,7 +32,7 @@ https://docs.djangoproject.com/en/2.0/ref/databases/
 * regarder Enunciate pour documenter l'API
 * regarder OAuth2 en django
 * Ecrire test unitaires
-=======
+
 ## Notes
 ### Allergènes Openfoodfacts
 *	"en:mustard" => Mutarde
@@ -44,12 +43,9 @@ https://docs.djangoproject.com/en/2.0/ref/databases/
 *	"en:milk" => Lait
 *	"en:soybeans" => Germe de soja
 *	"fr:lactosérum"
-<<<<<<< HEAD
->>>>>>> 7471fa28bbaf30fd3b1dc0964ea7b1b0860410bb
-=======
+
 
 
 # TODO
 * Add Access-Control-Allow-Origin header on response (See https://github.com/crs4/ome_seadragon/wiki/Enable-Django-CORS-(Cross-Origin-Resource-Sharing)-Headers-configuration)
 * Add front_quantity field on component class (1cs, 1cc, ...)
->>>>>>> ab77b180f163f8b596bd1699b8e063923c2c027e
