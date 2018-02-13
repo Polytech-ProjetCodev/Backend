@@ -67,6 +67,13 @@ class ComponentList(generics.ListCreateAPIView):
     queryset = Component.objects.all()
     serializer_class = ComponentSerializer
 
+    # def perform_create(self, serializer):
+    #     recipe = serializer.data.get('recipe')
+    #     quantity = serializer.data.get('quantity')
+    #     print(recipe)
+        # recipe['energy']+=
+    
+
 
 class ComponentDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Component.objects.all()
