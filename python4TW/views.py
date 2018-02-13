@@ -46,6 +46,7 @@ class IngredientDetail(APIView):
 
     def get(self, request, pk, format=None):
         ingredient = self.get_object(pk)
+        ingredient.save();
         serializer = IngredientSerializer(ingredient)
         return Response(serializer.data)
 
@@ -90,7 +91,8 @@ class RecipeList(generics.ListCreateAPIView):
     serializer_class = RecipeSerializer
 
     def perform_create(self, serializer):
-        serializer.save(owner=self.request.user)
+        # serializer.save(owner=self.request.user)
+        serializer.save(owner=User.objects.get(id='1'))
 
 
 class RecipeDetail(generics.RetrieveUpdateDestroyAPIView):
