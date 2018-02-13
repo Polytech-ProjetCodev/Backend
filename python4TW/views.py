@@ -37,6 +37,7 @@ class IngredientDetail(APIView):
 
             try:
                 ingredient.get_information(barcode=pk)
+                ingredient.save()
                 return ingredient
             except KeyError:
                 raise Http404
@@ -67,11 +68,22 @@ class ComponentList(generics.ListCreateAPIView):
     queryset = Component.objects.all()
     serializer_class = ComponentSerializer
 
-    # def perform_create(self, serializer):
-    #     recipe = serializer.data.get('recipe')
-    #     quantity = serializer.data.get('quantity')
-    #     print(recipe)
-        # recipe['energy']+=
+    def perform_create(self, serializer):
+        serializer.save()
+        recipe = Recipe.objects.get(pk=serializer.data.get('recipe'))
+        quantity = serializer.data.get('quantity')
+        ingredient = Ingredient.objects.get(barcode=serializer.data.get('ingredient'))
+
+        #updating the recipe's nutritional values based on the quantity of the ingredient added 
+        recipe.energy += ingredient.energy_100g*quantity/100
+        recipe.fat += ingredient.fat_100g*quantity/100
+        recipe.saturated += ingredient.saturated_fat_100g*quantity/100
+        recipe.carbohydrates += ingredient.carbohydrates_100g*quantity/100
+        recipe.sugar += ingredient.sugar_100g*quantity/100
+        recipe.protein += ingredient.protein_100g*quantity/100
+        recipe.salt += ingredient.salt_100g*quantity/100
+
+        recipe.save()
     
 
 
@@ -79,11 +91,57 @@ class ComponentDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Component.objects.all()
     serializer_class = ComponentSerializer
 
-    # def perform_destroy(self, serializer):
-    #     pass
+    def perform_update(self, serializer):
+        serializer.save()
 
-    # def perform_destroy(self, instance):
-    #     pass
+        recipe = serializer.validated_data.get('recipe')
+        recipe_components = Component.objects.filter(recipe=recipe)
+
+        recipe.energy = 0
+        recipe.fat = 0
+        recipe.saturated = 0
+        recipe.carbohydrates = 0
+        recipe.sugar = 0
+        recipe.protein = 0
+        recipe.salt = 0
+        for component in recipe_components:
+            ingredient = component.ingredient
+            quantity = component.quantity
+            recipe.energy = ingredient.energy_100g*quantity/100
+            recipe.fat = ingredient.fat_100g*quantity/100
+            recipe.saturated = ingredient.saturated_fat_100g*quantity/100
+            recipe.carbohydrates = ingredient.carbohydrates_100g*quantity/100
+            recipe.sugar = ingredient.sugar_100g*quantity/100
+            recipe.protein = ingredient.protein_100g*quantity/100
+            recipe.salt = ingredient.salt_100g*quantity/100
+            
+        recipe.save()
+
+
+
+
+
+
+    def perform_destroy(self, instance):
+        ingredient = instance.ingredient
+        recipe = instance.recipe
+        quantity = instance.quantity
+
+        print(ingredient)
+        print(recipe)
+        print(quantity)
+
+        print(ingredient.energy_100g*quantity/100)
+        recipe.energy -= ingredient.energy_100g*quantity/100
+        recipe.fat -= ingredient.fat_100g*quantity/100
+        recipe.saturated -= ingredient.saturated_fat_100g*quantity/100
+        recipe.carbohydrates -= ingredient.carbohydrates_100g*quantity/100
+        recipe.sugar -= ingredient.sugar_100g*quantity/100
+        recipe.protein -= ingredient.protein_100g*quantity/100
+        recipe.salt -= ingredient.salt_100g*quantity/100
+
+        recipe.save()
+        instance.delete()
 
 class RecipeList(generics.ListCreateAPIView):
     queryset = Recipe.objects.all()

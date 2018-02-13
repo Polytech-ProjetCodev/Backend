@@ -83,27 +83,7 @@ class Recipe(models.Model):
     protein = models.FloatField()
     salt = models.FloatField()
 
-    # a tester
-    # def get_nutritional_values(self):
-    #     queryset = Component.objects.filter(recipe=self.id)
-    #     for component in queryset:
-    #         self.fat += component.fat_100g*component.quantity/100
-
-
 class Component(models.Model):
     ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
     recipe = models.ForeignKey( Recipe, related_name='components', on_delete=models.CASCADE)
     quantity = models.FloatField()
-
-    # def on_put(self):
-    #     print("in on_add()")
-    #     recipe.energy += self.ingredient.energy_100g*self.quantity/100
-
-
-    # def on_post(self):
-    #     print("in on_post()")
-    #     self.recipe.energy += self.ingredient.energy_100g*self.quantity/100
-
-    # def on_delete(self):
-    #     print("in on_delete()")
-    #     self.recipe.energy -= self.ingredient.energy_100g*self.quantity/100
