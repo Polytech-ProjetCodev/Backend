@@ -12,7 +12,6 @@ from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework import status
 # from python4TW.permissions import IsOwnerOrReadOnly
-import time
 
 
 def welcome(request):
@@ -20,7 +19,7 @@ def welcome(request):
     return HttpResponse("welcome to the API")
 
 
-class IngredientList(generics.ListCreateAPIView):
+class IngredientList(generics.ListAPIView):
     queryset = Ingredient.objects.all()
     serializer_class = IngredientSerializer
 
@@ -67,13 +66,6 @@ class IngredientDetail(APIView):
 class ComponentList(generics.ListCreateAPIView):
     queryset = Component.objects.all()
     serializer_class = ComponentSerializer
-
-    def perform_create(self, serializer):
-        recipe = serializer.data.get('recipe')
-        quantity = serializer.data.get('quantity')
-        print(recipe)
-        recipe['energy']+=
-    
 
 
 class ComponentDetail(generics.RetrieveUpdateDestroyAPIView):

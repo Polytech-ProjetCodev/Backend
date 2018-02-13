@@ -28,10 +28,6 @@ class Ingredient(models.Model):
         full_information = self.get_full_information(barcode)
         self.barcode = barcode
         self.name = full_information['product']['product_name']
-        try:
-            self.image = full_information['product']['selected_images']['front']['display']['fr']
-        except KeyError:
-            self.image = ""
 
         try:
             self.image = full_information['product']['image_front_url']
@@ -96,8 +92,7 @@ class Recipe(models.Model):
 
 class Component(models.Model):
     ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
-    recipe = models.ForeignKey(
-        Recipe, related_name='components', on_delete=models.CASCADE)
+    recipe = models.ForeignKey( Recipe, related_name='components', on_delete=models.CASCADE)
     quantity = models.FloatField()
 
     # def on_put(self):

@@ -1,30 +1,32 @@
-
 from rest_framework import serializers
 from python4TW.models import Ingredient, Component, Recipe
 from django.contrib.auth.models import User
-#
 
 
 class IngredientSerializer(serializers.ModelSerializer):
+    name = serializers.CharField(read_only=True)
+    image = serializers.CharField(read_only=True)
+    energy_100g = serializers.FloatField(read_only=True)
+    fat_100g = serializers.FloatField(read_only=True)
+    saturated_fat_100g = serializers.FloatField(read_only=True)
+    carbohydrates_100g = serializers.FloatField(read_only=True)
+    sugar_100g = serializers.FloatField(read_only=True)
+    protein_100g = serializers.FloatField(read_only=True)
+    salt_100g = serializers.FloatField(read_only=True)
+
     class Meta:
         model = Ingredient
         fields = '__all__'
 
-
 class ComponentSerializer(serializers.ModelSerializer):
-    # recipe = serializers.PrimaryKeyRelatedField(many=False, queryset=Recipe.objects.all())
-    ingredient = IngredientSerializer()
-
     class Meta:
         model = Component
-        exclude = ['recipe']
-
-    # def create(self, validated_data):
-    #     pass
+        # fields='__all__'
+        fields = ['ingredient', 'quantity']
 
 
 class RecipeSerializer(serializers.ModelSerializer):
-    components = ComponentSerializer(many=True)
+    components = ComponentSerializer(many=True, read_only=True)
     owner = serializers.ReadOnlyField(source='owner.username')
     energy = serializers.FloatField(read_only=True, default=0)
     fat = serializers.FloatField(read_only=True, default=0)
@@ -40,7 +42,8 @@ class RecipeSerializer(serializers.ModelSerializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
-    recipes = RecipeSerializer(many=True)
+    recipes = RecipeSerializer(many=True, read_only=True)
+
 
     class Meta:
         model = User
