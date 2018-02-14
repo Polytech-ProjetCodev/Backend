@@ -18,11 +18,11 @@ class IngredientSerializer(serializers.ModelSerializer):
         model = Ingredient
         fields = '__all__'
 
+
 class ComponentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Component
         # fields='__all__'
-
         fields = ['ingredient', 'quantity', 'recipe', 'id']
 
 
@@ -44,8 +44,6 @@ class RecipeSerializer(serializers.ModelSerializer):
 
 class UserSerializer(serializers.ModelSerializer):
     recipes = RecipeSerializer(many=True, read_only=True)
-    #RAJOUTER TOKEN AUTHENTIFICATION
-
 
     class Meta:
         model = User
