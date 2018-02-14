@@ -1,4 +1,5 @@
 from django.urls import path
+from rest_framework.authtoken import views as drf_auth_views
 
 from . import views
 from rest_framework.urlpatterns import format_suffix_patterns
@@ -7,6 +8,8 @@ from django.conf.urls import include
 urlpatterns = [
     path('', views.welcome),
     path('api-auth/', include('rest_framework.urls')),
+    path('api-token-auth/', drf_auth_views.obtain_auth_token),
+
 
     path('ingredient/', views.IngredientList.as_view()),
     path('ingredient/<int:pk>/', views.IngredientDetail.as_view()),
