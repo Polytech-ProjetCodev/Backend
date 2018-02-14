@@ -28,10 +28,8 @@ class Ingredient(models.Model):
 
     def get_full_information(self, barcode):
         """returns a dictionnary containing all information provided by the openfoodfacts.org API from the ID passed in parameter"""
-        # print("on va chercher l'ingrédient sur openfoodfacts.org")
         openfoodfactsinfo = requests.get(
             'https://fr.openfoodfacts.org/api/v0/produit/' + str(barcode) + '.json').json()
-        # print(str(openfoodfactsinfo)[:100])
         return openfoodfactsinfo
 
     def get_information(self, barcode):

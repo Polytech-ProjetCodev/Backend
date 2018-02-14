@@ -5,13 +5,13 @@ from django.http import HttpResponse
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from django.contrib.auth.models import User
-# from rest_framework import permissions
+from rest_framework import permissions
 from rest_framework import mixins
 
 from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework import status
-# from python4TW.permissions import IsOwnerOrReadOnly
+from python4TW.permissions import IsOwner
 
 
 def welcome(request):
@@ -72,9 +72,10 @@ class ComponentList(generics.ListCreateAPIView):
         serializer.save()
         recipe = Recipe.objects.get(pk=serializer.data.get('recipe'))
         quantity = serializer.data.get('quantity')
-        ingredient = Ingredient.objects.get(barcode=serializer.data.get('ingredient'))
+        ingredient = Ingredient.objects.get(
+            barcode=serializer.data.get('ingredient'))
 
-        #updating the recipe's nutritional values based on the quantity of the ingredient added 
+        # updating the recipe's nutritional values based on the quantity of the ingredient added
         recipe.energy += ingredient.energy_100g*quantity/100
         recipe.fat += ingredient.fat_100g*quantity/100
         recipe.saturated += ingredient.saturated_fat_100g*quantity/100
@@ -84,7 +85,6 @@ class ComponentList(generics.ListCreateAPIView):
         recipe.salt += ingredient.salt_100g*quantity/100
 
         recipe.save()
-    
 
 
 class ComponentDetail(generics.RetrieveUpdateDestroyAPIView):
@@ -114,13 +114,8 @@ class ComponentDetail(generics.RetrieveUpdateDestroyAPIView):
             recipe.sugar = ingredient.sugar_100g*quantity/100
             recipe.protein = ingredient.protein_100g*quantity/100
             recipe.salt = ingredient.salt_100g*quantity/100
-            
+
         recipe.save()
-
-
-
-
-
 
     def perform_destroy(self, instance):
         ingredient = instance.ingredient
@@ -143,15 +138,24 @@ class ComponentDetail(generics.RetrieveUpdateDestroyAPIView):
         recipe.save()
         instance.delete()
 
+
 class RecipeList(generics.ListCreateAPIView):
-    queryset = Recipe.objects.all()
     serializer_class = RecipeSerializer
+
+    def get_queryset(self):
+        """
+        This view should return a list of all the purchases
+        for the currently authenticated user.
+        """
+        user = self.request.user
+        return Recipe.objects.filter(owner=user)
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
 
 class RecipeDetail(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = (IsOwner, permissions.IsAuthenticatedOrReadOnly)
     queryset = Recipe.objects.all()
     serializer_class = RecipeSerializer
 
