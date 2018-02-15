@@ -22,6 +22,7 @@ class IngredientSerializer(serializers.ModelSerializer):
 class ComponentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Component
+        # fields='__all__'
         fields = ['ingredient', 'quantity', 'recipe', 'id']
 
 
