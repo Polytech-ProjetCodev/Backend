@@ -173,5 +173,6 @@ class UserDetail(generics.RetrieveAPIView):
 
 
 class UserCreate(generics.CreateAPIView):
+    permission_classes=[permissions.AllowAny]
     queryset = User.objects.all()
     serializer_class = UserSerializer
