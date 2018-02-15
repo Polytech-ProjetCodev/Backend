@@ -115,8 +115,8 @@ DATABASES = {
         'NAME': 'python4TW',
         'USER': 'postgres',
         'PASSWORD': 'changeme',
-        'HOST': '127.0.0.1',
-        'PORT': '5433',
+        'HOST': 'postgres',
+        'PORT': '5432',
     }
 }
 REST_FRAMEWORK = {
