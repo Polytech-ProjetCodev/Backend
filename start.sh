@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+sleep 10
 echo Starting Migration
 python manage.py migrate
 

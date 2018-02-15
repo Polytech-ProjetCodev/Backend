@@ -11,7 +11,13 @@ ssh ${user}@${host} mkdir ${workdir} -p
 scp docker-compose.yml ${user}@${host}:${workdir}
 
 ssh ${user}@${host} "cd ${workdir}; docker-compose pull"
-ssh ${user}@${host} "cd ${workdir}; docker-compose down"
-ssh ${user}@${host} "cd ${workdir}; docker-compose up -d"
+#ssh ${user}@${host} "cd ${workdir}; docker-compose down"
+#ssh ${user}@${host} "cd ${workdir}; docker-compose up -d"
+
+## Alternative --> Keep database
+ssh ${user}@${host} "cd ${workdir}; docker-compose stop web"
+ssh ${user}@${host} "cd ${workdir}; docker-compose rm web"
+ssh ${user}@${host} "cd ${workdir}; docker-compose up web -d"
+
 
 exit

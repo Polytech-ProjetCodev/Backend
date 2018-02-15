@@ -1,4 +1,4 @@
-version: '2.2'
+version: '2.0'
 
 services:
   postgres:
@@ -8,7 +8,7 @@ services:
       POSTGRES_PASSWORD: changeme
       POSTGRES_DB: python4TW
     ports:
-      - "5433:5432"
+      - "5432:5432"
     networks:
       - postgres
     restart: unless-stopped
@@ -28,6 +28,8 @@ services:
     ports:
       - "8000:8000"
     depends_on:
+      - postgres
+    networks: 
       - postgres
 
 networks:
