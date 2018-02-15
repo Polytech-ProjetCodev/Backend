@@ -45,6 +45,9 @@ class RecipeSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     recipes = RecipeSerializer(many=True, read_only=True)
 
+    def create(self, validated_data):
+        return User.objects.create_user(**validated_data)
+
     class Meta:
         model = User
         fields = ('id', 'email', 'username', 'password', 'recipes')
