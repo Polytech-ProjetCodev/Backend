@@ -6,21 +6,22 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: changeme
+      POSTGRES_DB: python4TW
     ports:
       - "5433:5432"
     networks:
       - postgres
     restart: unless-stopped
 
-  # pgadmin:
-  #   links:
-  #     - postgres:postgres
-  #   image: fenglc/pgadmin4
-  #   ports:
-  #     - "5050:5050"
-  #   networks:
-  #     - postgres
-  #   restart: unless-stopped
+  pgadmin:
+    links:
+      - postgres:postgres
+    image: fenglc/pgadmin4
+    ports:
+      - "5050:5050"
+    networks:
+      - postgres
+    restart: unless-stopped
 
   web:
     image: python4tw/web
