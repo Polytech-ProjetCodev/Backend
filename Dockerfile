@@ -14,5 +14,8 @@ ENV DOCKER_CONTAINER=1
 
 EXPOSE 8000
 
+# CMD [ "python", "manage.py migrate"]
+# RUN python manage.py migrate
+
 # CMD [ "pipenv", "install" ]
 CMD [ "bash", "start.sh" ]

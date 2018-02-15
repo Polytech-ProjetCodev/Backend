@@ -6,6 +6,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: changeme
+      POSTGRES_DB: python4TW
     ports:
       - "5433:5432"
     networks:
